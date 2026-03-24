@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Sandern · Analista de Datos & TI | Portafolio</title>
+    <title>Sandern · Analista de Datos & TI | RGB Motion</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -22,16 +22,18 @@
             overflow-x: hidden;
         }
 
-        /* Fondo animado de gradiente */
+        /* Fondo oscuro con gradiente sutil */
         .bg-gradient {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(45, 70, 120, 0.3), rgba(10, 10, 20, 0.95));
+            background: radial-gradient(circle at 20% 30%, rgba(45, 70, 120, 0.2), #05050a);
             z-index: -2;
         }
+
+        /* Partículas animadas con RGB */
         .bg-particles {
             position: fixed;
             top: 0;
@@ -39,14 +41,18 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle cx="400" cy="400" r="2" fill="rgba(255,217,102,0.2)"/><circle cx="200" cy="500" r="1.5" fill="rgba(255,217,102,0.2)"/><circle cx="600" cy="300" r="1.5" fill="rgba(255,217,102,0.2)"/><circle cx="500" cy="700" r="1" fill="rgba(255,217,102,0.2)"/><circle cx="300" cy="100" r="1" fill="rgba(255,217,102,0.2)"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle cx="400" cy="400" r="2" fill="rgba(255,0,0,0.3)"/><circle cx="200" cy="500" r="1.5" fill="rgba(0,255,0,0.3)"/><circle cx="600" cy="300" r="1.5" fill="rgba(0,0,255,0.3)"/><circle cx="500" cy="700" r="1" fill="rgba(255,255,0,0.3)"/><circle cx="300" cy="100" r="1" fill="rgba(0,255,255,0.3)"/></svg>');
             background-repeat: repeat;
-            opacity: 0.4;
-            animation: moveParticles 60s linear infinite;
+            opacity: 0.6;
+            animation: moveParticles 60s linear infinite, rgbParticles 8s infinite alternate;
         }
         @keyframes moveParticles {
             0% { background-position: 0 0; }
             100% { background-position: 100% 100%; }
+        }
+        @keyframes rgbParticles {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
 
         /* Contenedor principal */
@@ -56,7 +62,7 @@
             padding: 0 1.5rem;
         }
 
-        /* Navbar moderna */
+        /* Navbar con borde RGB animado */
         .navbar {
             position: fixed;
             top: 0;
@@ -64,9 +70,19 @@
             width: 100%;
             backdrop-filter: blur(12px);
             background: rgba(10, 10, 20, 0.6);
-            border-bottom: 1px solid rgba(255, 217, 102, 0.2);
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, red, lime, blue, red) 1;
+            animation: borderRGB 6s linear infinite;
             z-index: 100;
             padding: 0.8rem 0;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        @keyframes borderRGB {
+            0% { border-bottom-color: red; }
+            25% { border-bottom-color: lime; }
+            50% { border-bottom-color: blue; }
+            75% { border-bottom-color: magenta; }
+            100% { border-bottom-color: red; }
         }
         .nav-container {
             display: flex;
@@ -79,10 +95,11 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #FFD966, #FFB347);
+            background: linear-gradient(135deg, #FFD966, #FF6A00);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 0 8px rgba(255, 217, 102, 0.5);
         }
         .nav-links a {
             color: #ddd;
@@ -93,9 +110,10 @@
         }
         .nav-links a:hover {
             color: #FFD966;
+            text-shadow: 0 0 8px #FFD966;
         }
 
-        /* Botón flotante de WhatsApp */
+        /* Botón flotante de WhatsApp con RGB animado */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -109,14 +127,15 @@
             justify-content: center;
             font-size: 2rem;
             color: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.8);
             transition: 0.3s;
             z-index: 99;
             text-decoration: none;
+            animation: rgbGlow 3s infinite alternate;
         }
         .whatsapp-float:hover {
             transform: scale(1.1);
-            background: #128C7E;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 1);
         }
 
         /* Hero Section */
@@ -142,9 +161,16 @@
             padding: 0.5rem 1.2rem;
             border-radius: 40px;
             font-size: 0.8rem;
-            border: 1px solid rgba(255, 217, 102, 0.5);
-            margin-bottom: 1.5rem;
+            border: 1px solid;
+            animation: rgbBorder 4s infinite;
             backdrop-filter: blur(4px);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        @keyframes rgbBorder {
+            0% { border-color: red; box-shadow: 0 0 6px red; }
+            33% { border-color: lime; box-shadow: 0 0 6px lime; }
+            66% { border-color: blue; box-shadow: 0 0 6px blue; }
+            100% { border-color: red; box-shadow: 0 0 6px red; }
         }
         .hero-text h1 {
             font-size: 3.5rem;
@@ -153,10 +179,18 @@
             margin-bottom: 1rem;
         }
         .hero-text .highlight {
-            background: linear-gradient(120deg, #FFD966, #FFB347);
+            background: linear-gradient(120deg, #FFD966, #FF6A00);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 0 12px rgba(255, 217, 102, 0.6);
+            animation: rgbText 3s infinite;
+        }
+        @keyframes rgbText {
+            0% { text-shadow: 0 0 5px red; }
+            33% { text-shadow: 0 0 5px lime; }
+            66% { text-shadow: 0 0 5px blue; }
+            100% { text-shadow: 0 0 5px red; }
         }
         .hero-text p {
             font-size: 1.2rem;
@@ -176,9 +210,17 @@
             font-size: 2rem;
             font-weight: 700;
             color: #FFD966;
+            text-shadow: 0 0 8px #FFD966;
+            animation: rgbShadow 3s infinite;
+        }
+        @keyframes rgbShadow {
+            0% { text-shadow: 0 0 5px red; }
+            33% { text-shadow: 0 0 5px lime; }
+            66% { text-shadow: 0 0 5px blue; }
+            100% { text-shadow: 0 0 5px red; }
         }
         .btn-primary {
-            background: linear-gradient(90deg, #FFD966, #FFB347);
+            background: linear-gradient(90deg, #FFD966, #FF6A00);
             color: #0a0a0f;
             border: none;
             padding: 0.8rem 2rem;
@@ -188,29 +230,35 @@
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 0 10px rgba(255, 217, 102, 0.6);
+            animation: rgbGlow 3s infinite alternate;
+        }
+        @keyframes rgbGlow {
+            0% { box-shadow: 0 0 5px red; }
+            33% { box-shadow: 0 0 5px lime; }
+            66% { box-shadow: 0 0 5px blue; }
+            100% { box-shadow: 0 0 5px red; }
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 217, 102, 0.3);
+            box-shadow: 0 0 20px rgba(255, 217, 102, 1);
         }
         .hero-image {
             flex: 1;
             text-align: center;
-             width: 320px;
-            height: 320px;
         }
         .profile-photo {
             width: 320px;
             height: 320px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #FFD966;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            border: 3px solid;
+            animation: rgbBorder 4s infinite;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
             transition: 0.4s;
         }
         .profile-photo:hover {
             transform: scale(1.02);
-            border-color: #FFB347;
         }
 
         /* Secciones generales */
@@ -223,18 +271,23 @@
             margin-bottom: 2rem;
             text-align: center;
             position: relative;
+            color: #FFD966;
+            text-shadow: 0 0 8px rgba(255, 217, 102, 0.5);
+            animation: rgbText 4s infinite;
         }
         .section-title:after {
             content: '';
             display: block;
             width: 80px;
             height: 3px;
-            background: linear-gradient(90deg, #FFD966, #FFB347);
+            background: linear-gradient(90deg, #FFD966, #FF6A00);
             margin: 0.8rem auto 0;
             border-radius: 3px;
+            box-shadow: 0 0 6px #FFD966;
+            animation: rgbBorder 4s infinite;
         }
 
-        /* Cards */
+        /* Cards con borde RGB animado en hover */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -245,18 +298,22 @@
             backdrop-filter: blur(8px);
             border-radius: 24px;
             padding: 1.8rem;
-            border: 1px solid rgba(255, 217, 102, 0.2);
+            border: 1px solid rgba(255, 217, 102, 0.4);
             transition: 0.3s;
+            box-shadow: 0 0 8px rgba(255, 217, 102, 0.2);
         }
         .card:hover {
             transform: translateY(-8px);
             border-color: #FFD966;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            animation: rgbBorder 1s infinite;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
         .card-icon {
             font-size: 2.5rem;
             color: #FFD966;
             margin-bottom: 1rem;
+            text-shadow: 0 0 6px #FFD966;
+            animation: rgbText 3s infinite;
         }
         .card h3 {
             font-size: 1.4rem;
@@ -289,10 +346,11 @@
             font-size: 0.75rem;
             margin-right: 0.5rem;
             margin-top: 0.5rem;
-            border: 1px solid rgba(255, 217, 102, 0.3);
+            border: 1px solid rgba(255, 217, 102, 0.5);
+            box-shadow: 0 0 4px rgba(255, 217, 102, 0.3);
         }
 
-        /* Barra de progreso para competencias */
+        /* Barra de progreso con RGB */
         .competencia-item {
             margin-bottom: 1.2rem;
         }
@@ -306,13 +364,16 @@
             border-radius: 30px;
             overflow: hidden;
             height: 8px;
+            box-shadow: inset 0 0 3px #000;
         }
         .progress-fill {
-            background: linear-gradient(90deg, #FFD966, #FFB347);
+            background: linear-gradient(90deg, #FFD966, #FF6A00);
             width: 0%;
             height: 100%;
             border-radius: 30px;
             transition: width 1s ease;
+            box-shadow: 0 0 6px #FFD966;
+            animation: rgbGlow 3s infinite;
         }
 
         /* Proyectos */
@@ -326,6 +387,8 @@
             color: #FFD966;
             border-radius: 20px;
             margin-bottom: 1rem;
+            text-shadow: 0 0 8px #FFD966;
+            animation: rgbText 3s infinite;
         }
 
         /* Contacto */
@@ -333,6 +396,7 @@
             background: linear-gradient(135deg, rgba(20, 20, 35, 0.9), rgba(10, 10, 20, 0.95));
             border-radius: 40px;
             margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
         .contact-card {
             text-align: center;
@@ -351,10 +415,12 @@
             text-decoration: none;
             transition: 0.3s;
             margin-top: 1rem;
+            box-shadow: 0 0 12px rgba(37, 211, 102, 0.8);
+            animation: rgbGlow 3s infinite alternate;
         }
         .whatsapp-btn:hover {
             transform: scale(1.05);
-            background: #128C7E;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 1);
         }
 
         footer {
@@ -362,7 +428,7 @@
             padding: 2rem;
             font-size: 0.8rem;
             color: #8a93b3;
-            border-top: 1px solid rgba(255,217,102,0.1);
+            border-top: 1px solid rgba(255,217,102,0.2);
         }
 
         @media (max-width: 768px) {
@@ -409,11 +475,13 @@
                 </div>
                 <a href="#contacto" class="btn-primary"><i class="fas fa-paper-plane"></i> Conectemos</a>
             </div>
-            <div class="hero-image">
-                <!-- Reemplaza esta URL con la foto de tu CV (puedes subirla a un hosting o usar una imagen base64) -->
-                <img src="https://github.com/SandernHost/PortafolioSandern/blob/main/foto.png?raw=true">
-                <p style="font-size:0.7rem; margin-top:0.5rem;">Sandern</p>
-            </div>
+           
+          <div class="hero-image">
+    <img src="https://github.com/SandernHost/PortafolioSandern/blob/main/foto.png?raw=true" 
+         alt="Sandern" 
+         style="width: 380px; height: 380px; object-fit: cover; border-radius: 50%; border: 3px solid; animation: rgbBorder 4s infinite; box-shadow: 0 0 25px rgba(0,0,0,0.5);">
+    <p style="font-size: 1.2rem; margin-top: 1rem; font-weight: 600; color: #FFD966; text-shadow: 0 0 8px #FFD966;">Sandern</p>
+</div>
         </div>
     </section>
 
@@ -613,7 +681,7 @@
         });
     });
 
-    // Pequeña mejora: añadir clase a navbar al hacer scroll
+    // Cambio de opacidad en navbar al hacer scroll
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.navbar');
         if (window.scrollY > 50) nav.style.background = 'rgba(10, 10, 20, 0.8)';

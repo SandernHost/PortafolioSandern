@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sandern · Analista de Datos & TI | Portafolio</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #eef2ff;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Fondo animado de gradiente */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(45, 70, 120, 0.3), rgba(10, 10, 20, 0.95));
+            z-index: -2;
+        }
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle cx="400" cy="400" r="2" fill="rgba(255,217,102,0.2)"/><circle cx="200" cy="500" r="1.5" fill="rgba(255,217,102,0.2)"/><circle cx="600" cy="300" r="1.5" fill="rgba(255,217,102,0.2)"/><circle cx="500" cy="700" r="1" fill="rgba(255,217,102,0.2)"/><circle cx="300" cy="100" r="1" fill="rgba(255,217,102,0.2)"/></svg>');
+            background-repeat: repeat;
+            opacity: 0.4;
+            animation: moveParticles 60s linear infinite;
+        }
+        @keyframes moveParticles {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar moderna */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 20, 0.6);
+            border-bottom: 1px solid rgba(255, 217, 102, 0.2);
+            z-index: 100;
+            padding: 0.8rem 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD966, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: #FFD966;
+        }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            z-index: 99;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-badge {
+            background: rgba(255, 217, 102, 0.15);
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 217, 102, 0.5);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .hero-text .highlight {
+            background: linear-gradient(120deg, #FFD966, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #b9c3e6;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD966;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #FFD966, #FFB347);
+            color: #0a0a0f;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 217, 102, 0.3);
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .profile-photo {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #FFD966;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            transition: 0.4s;
+        }
+        .profile-photo:hover {
+            transform: scale(1.02);
+            border-color: #FFB347;
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD966, #FFB347);
+            margin: 0.8rem auto 0;
+            border-radius: 3px;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: rgba(20, 20, 35, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid rgba(255, 217, 102, 0.2);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #FFD966;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: #FFD966;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .exp-date {
+            color: #FFD966;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+        }
+        .exp-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .exp-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+        }
+        .exp-list i {
+            color: #FFD966;
+            margin-top: 0.2rem;
+        }
+        .skill-tag {
+            background: rgba(255, 217, 102, 0.15);
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(255, 217, 102, 0.3);
+        }
+
+        /* Barra de progreso para competencias */
+        .competencia-item {
+            margin-bottom: 1.2rem;
+        }
+        .competencia-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        .progress-bar {
+            background: #2a2a3c;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 8px;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #FFD966, #FFB347);
+            width: 0%;
+            height: 100%;
+            border-radius: 30px;
+            transition: width 1s ease;
+        }
+
+        /* Proyectos */
+        .project-img {
+            height: 160px;
+            background: rgba(45, 55, 80, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #FFD966;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        /* Contacto */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(20, 20, 35, 0.9), rgba(10, 10, 20, 0.95));
+            border-radius: 40px;
+            margin: 2rem auto;
+        }
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        .whatsapp-btn {
+            background: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 1rem;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background: #128C7E;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #8a93b3;
+            border-top: 1px solid rgba(255,217,102,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .profile-photo { width: 220px; height: 220px; }
+            .nav-links a { margin-left: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="bg-particles"></div>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <span class="logo">Sandern.geo</span>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#habilidades">Herramientas</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </div>
+</nav>
+
+<a href="https://wa.me/51951720492?text=Hola%20Sandern,%20vi%20tu%20portafolio%20y%20me%20gustaría%20conectarme%20contigo." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<main>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-chart-line"></i> Analista de Datos & TI · Trazabilidad</div>
+                <h1>Sandern · <span class="highlight">Transformando datos</span> en decisiones estratégicas</h1>
+                <p>Especialista en análisis de datos, sistemas de trazabilidad y desarrollo full-stack. Ayudo a empresas a optimizar procesos y tomar decisiones basadas en datos.</p>
+                <div class="hero-stats">
+                    <div class="stat"><div class="stat-number">+3</div><div>años experiencia</div></div>
+                    <div class="stat"><div class="stat-number">+12</div><div>proyectos data</div></div>
+                    <div class="stat"><div class="stat-number">+5</div><div>herramientas BI</div></div>
+                </div>
+                <a href="#contacto" class="btn-primary"><i class="fas fa-paper-plane"></i> Conectemos</a>
+            </div>
+            <div class="hero-image">
+                <!-- Reemplaza esta URL con la foto de tu CV (puedes subirla a un hosting o usar una imagen base64) -->
+                <img src="https://via.placeholder.com/320x320?text=Tu+Foto" alt="Sandern" class="profile-photo" id="profileImg">
+                <p style="font-size:0.7rem; margin-top:0.5rem;">* Reemplaza con tu foto</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi">
+        <div class="container">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size:1.1rem;">Bachiller en Estadística e Informática por la UNJFSC. Apasionado por el análisis de datos, la trazabilidad y el desarrollo de soluciones tecnológicas. Con experiencia en sistemas epidemiológicos, control de producción mediante códigos QR y dashboards interactivos. Mi enfoque combina la precisión estadística con la innovación tecnológica para entregar insights accionables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia">
+        <div class="container">
+            <h2 class="section-title">Experiencia profesional</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-hospital-user"></i></div>
+                    <h3>Auxiliar TI - Epidemiología</h3>
+                    <div class="exp-date">06/2024 – 12/2025 · Hospital R. Huacho SBS</div>
+                    <ul class="exp-list">
+                        <li><i class="fas fa-circle"></i> Gestión y análisis de datos epidemiológicos</li>
+                        <li><i class="fas fa-circle"></i> Soporte técnico en sistemas de información en salud</li>
+                        <li><i class="fas fa-circle"></i> Generación de reportes y alertas de vigilancia</li>
+                        <li><i class="fas fa-circle"></i> Capacitación al personal en uso de sistemas</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-boxes"></i></div>
+                    <h3>Ayudante de producción - Trazabilidad</h3>
+                    <div class="exp-date">01/2024 – 04/2024 · Procesadora Torre Blanca - Chancay</div>
+                    <ul class="exp-list">
+                        <li><i class="fas fa-circle"></i> Supervisión con lectores de códigos de barras/QR</li>
+                        <li><i class="fas fa-circle"></i> Control de calidad y detección de anomalías</li>
+                        <li><i class="fas fa-circle"></i> Uso de software de gestión de inventarios y producción</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Desarrollador de Sistemas de Información</h3>
+                    <div class="exp-date">09/2023 – 12/2023 · Hospital Regional de Huacho</div>
+                    <ul class="exp-list">
+                        <li><i class="fas fa-circle"></i> Análisis geoespacial de enfermedades y dashboards</li>
+                        <li><i class="fas fa-circle"></i> Desarrollo y mantenimiento de sistemas de gestión de datos</li>
+                        <li><i class="fas fa-circle"></i> Visualización de datos para toma de decisiones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Herramientas -->
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Herramientas & tecnologías</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Análisis & BI</h3>
+                    <p>Power BI, Looker, Excel, SPSS, Minitab, R, Python</p>
+                    <div><span class="skill-tag">Power BI</span><span class="skill-tag">R</span><span class="skill-tag">Python</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-database"></i></div>
+                    <h3>Bases de datos</h3>
+                    <p>MySQL, SQL, PostgreSQL, kardex, ERP SAP</p>
+                    <div><span class="skill-tag">MySQL</span><span class="skill-tag">SQL</span><span class="skill-tag">PostgreSQL</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3>Desarrollo web</h3>
+                    <p>PHP, HTML/CSS, JavaScript, React, Node.js, Java Spring Boot</p>
+                    <div><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Java</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-qrcode"></i></div>
+                    <h3>Trazabilidad</h3>
+                    <p>Lectura QR/códigos de barras, software de trazabilidad, visión artificial</p>
+                    <div><span class="skill-tag">QR Scanner</span><span class="skill-tag">Traceability</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competencias con barras -->
+    <section id="competencias">
+        <div class="container">
+            <h2 class="section-title">Competencias clave</h2>
+            <div class="cards-grid">
+                <div>
+                    <div class="competencia-item"><div class="competencia-name"><span>📊 Trabajo en equipo / bajo presión</span><span>100%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                    <div class="competencia-item"><div class="competencia-name"><span>⚡ Proactividad y dinamismo</span><span>100%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                    <div class="competencia-item"><div class="competencia-name"><span>📈 Reporting Power BI</span><span>100%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                    <div class="competencia-item"><div class="competencia-name"><span>📁 Ofimática</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div></div>
+                </div>
+                <div>
+                    <div class="competencia-item"><div class="competencia-name"><span>🔄 Adaptabilidad y flexibilidad</span><span>100%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                    <div class="competencia-item"><div class="competencia-name"><span>🧠 Análisis de datos y estadística</span><span>100%</span></div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+                    <div class="competencia-item"><div class="competencia-name"><span>🗄️ Bases de datos</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div></div>
+                    <div class="competencia-item"><div class="competencia-name"><span>🔗 Software de gestión de trazabilidad</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+        <div class="container">
+            <h2 class="section-title">Proyectos destacados</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="project-img"><i class="fas fa-chart-line"></i></div>
+                    <h3>Dashboard Epidemiológico</h3>
+                    <p>Visualización interactiva de brotes, análisis geoespacial con Power BI y Python. +30% eficiencia en reportes.</p>
+                    <div><span class="skill-tag">Power BI</span><span class="skill-tag">Python</span></div>
+                </div>
+                <div class="card">
+                    <div class="project-img"><i class="fas fa-qrcode"></i></div>
+                    <h3>Sistema de trazabilidad</h3>
+                    <p>Control de inventarios con lectores QR/códigos de barras, integración ERP SAP. Reducción de errores 25%.</p>
+                    <div><span class="skill-tag">SQL</span><span class="skill-tag">PHP</span></div>
+                </div>
+                <div class="card">
+                    <div class="project-img"><i class="fas fa-chart-simple"></i></div>
+                    <h3>Reportes automatizados</h3>
+                    <p>Automatización de informes de producción con R y Looker. Ahorro de 15 horas/mes.</p>
+                    <div><span class="skill-tag">R</span><span class="skill-tag">Looker</span></div>
+                </div>
+                <div class="card">
+                    <div class="project-img"><i class="fas fa-store"></i></div>
+                    <h3>Tienda Virtual Full-Stack</h3>
+                    <p>Plataforma e‑commerce con HTML/CSS/JS, Java Spring Boot + MySQL. Autenticación JWT y carrito.</p>
+                    <div><span class="skill-tag">Java</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">MySQL</span></div>
+                </div>
+                <div class="card">
+                    <div class="project-img"><i class="fas fa-tasks"></i></div>
+                    <h3>Gestor de Trazabilidad</h3>
+                    <p>Aplicación web con React + Node.js + PostgreSQL, escaneo QR, reportes en tiempo real.</p>
+                    <div><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">PostgreSQL</span></div>
+                </div>
+                <div class="card">
+                    <div class="project-img"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Dashboard de KPIs con Python (FastAPI) y Vue.js + D3.js. Visualizaciones dinámicas.</p>
+                    <div><span class="skill-tag">Python</span><span class="skill-tag">Vue.js</span><span class="skill-tag">D3.js</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto directo WhatsApp -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="card contact-card">
+                <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
+                <h2>¿Quieres trabajar conmigo?</h2>
+                <p>Envíame un mensaje directo por WhatsApp y conversemos sobre cómo puedo aportar valor a tu equipo o proyecto.</p>
+                <a href="https://wa.me/51951720492?text=Hola%20Sandern,%20vi%20tu%20portafolio%20y%20me%20gustaría%20conectarme%20contigo." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> Escríbeme al +51 951 720 492
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">o envíame un correo: sanderns.car.nei.15@gmail.com</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Sandern · Analista de Datos & TI · Especialista en Trazabilidad</p>
+</footer>
+
+<script>
+    // Intersection Observer para animar barras de competencias cuando sean visibles
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bars = entry.target.querySelectorAll('.progress-fill');
+                bars.forEach(bar => {
+                    const width = bar.style.width;
+                    if (width) bar.style.width = width;
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('#competencias').forEach(section => observer.observe(section));
+
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Pequeña mejora: añadir clase a navbar al hacer scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.style.background = 'rgba(10, 10, 20, 0.8)';
+        else nav.style.background = 'rgba(10, 10, 20, 0.6)';
+    });
+</script>
+</body>
+</html>
